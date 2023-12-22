@@ -1,0 +1,3 @@
+@using StudentExams
+@namespace StudentExams.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
