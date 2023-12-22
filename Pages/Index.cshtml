@@ -1,0 +1,46 @@
+@page
+@model IndexModel
+@{
+}
+
+<h2>Create Record</h2>
+
+@if (Model.IsSuccess)
+{
+    <p>
+        Record created successfully!
+    </p>
+}
+else
+{
+    <form method="post">
+        <div asp-validation-summary="All"></div>
+
+        <div class="form-group">
+            <label asp-for="Teacher.FirstName">Teacher First Name:</label><br />
+            <input asp-for="Teacher.FirstName" class="form-control" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="Teacher.LastName">Teacher Last Name:</label><br />
+            <input asp-for="Teacher.LastName" class="form-control" /><br />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Student.FirstName">Student First Name:</label><br />
+            <input asp-for="Student.FirstName" class="form-control" /><br />
+        </div>
+        <div class="form-group">
+            <label asp-for="Student.LastName">Student Last Name:</label><br />
+            <input asp-for="Student.LastName" class="form-control" /><br />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Exam.Score">Exam Score:</label><br />
+            <input asp-for="Exam.Score" class="form-control" /><br />
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+}
