@@ -1,0 +1,19 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
+namespace StudentExams.Models
+{
+    public class Exam
+    {
+        [Key]
+        public int ExamId { get; set; }  // This is the primary key
+        public int StudentId { get; set; }
+        public int Score { get; set; }
+
+        // Navigation property (if needed)
+        public Student Student { get; set; }
+    }
+}
