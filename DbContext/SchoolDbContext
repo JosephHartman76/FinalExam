@@ -1,0 +1,70 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using StudentExams.Models;
+
+namespace StudentExams.DbContext
+{
+    public class SchoolDbContext : Microsoft.EntityFrameworkCore.DbContext
+    {
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Exam> Exams { get; set; }
+
+        public SchoolDbContext(DbContextOptions<SchoolDbContext> options) : base(options)
+        {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Add your model configurations here if needed
+        }
+        public IEnumerable<LetterGradeDistribution> GetLetterGradeDistribution()
+        {
+            // Retrieve exam scores
+            var examScores = Exams.Select(e => e.Score).ToList();
+
+            // Calculate letter grades
+            var letterGrades = examScores.Select(GetLetterGrade).ToList();
+
+            // Calculate distribution
+            var distribution = letterGrades
+                .GroupBy(grade => grade)
+                .Select(group => new LetterGradeDistribution
+                {
+                    LetterGrade = group.Key,
+                    Count = group.Count()
+                });
+
+            return distribution;
+        }
+
+        private static char GetLetterGrade(int score)
+        {
+            // Your logic to convert scores to letter grades
+            // Example: For simplicity, assuming A for scores >= 90, B for scores >= 80, and so on.
+            if (score >= 90)
+                return 'A';
+            else if (score >= 80)
+                return 'B';
+            else if (score >= 70)
+                return 'C';
+            else if (score >= 60)
+                return 'D';
+            else
+                return 'F';
+        }
+    }
+
+    public class LetterGradeDistribution
+    {
+        public char LetterGrade { get; set; }
+        public int Count { get; set; }
+        public int Total { get; set; }
+    }
+}
+    
