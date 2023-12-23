@@ -1,5 +1,5 @@
 @page
-@model StudentExams.Views.Student.CreateModel
+@model StudentExams.Pages.Student.CreateModel
 @{
 }
 <h2>Create Student</h2>
@@ -7,19 +7,19 @@
 <form method="post">
     <div asp-validation-summary="All"></div>
     <div class="form-group">
-        <label asp-for="Student.StudentId">Student ID:</label>
-        <input asp-for="Student.StudentId" class="form-control" />
-        <span asp-validation-for="Exam.StudentId"></span>
+        <label asp-for="NewStudent.StudentId">Student ID:</label>
+        <input asp-for="NewStudent.StudentId" class="form-control" />
+        <span asp-validation-for="NewStudent.StudentId"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Student.FirstName">First Name:</label>
-        <input asp-for="Student.FirstName" class="form-control" />
-        <span asp-validation-for="Student.FirstName"></span>
+        <label asp-for="NewStudent.FirstName">First Name:</label>
+        <input asp-for="NewStudent.FirstName" class="form-control" />
+        <span asp-validation-for="NewStudent.FirstName"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Student.LastName">Last Name:</label>
-        <input asp-for="Student.LastName" class="form-control" />
-        <span asp-validation-for="Student.LastName"></span>
+        <label asp-for="NewStudent.LastName">Last Name:</label>
+        <input asp-for="NewStudent.LastName" class="form-control" />
+        <span asp-validation-for="NewStudent.LastName"></span>
     </div>
     <button type="submit" class="btn btn-primary">Create</button>
 </form>
