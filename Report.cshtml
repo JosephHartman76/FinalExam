@@ -1,0 +1,57 @@
+@page
+@model StudentExams.Pages.ReportModel
+@{
+}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+
+<h2>Letter Grades Distribution</h2>
+<table>
+    <tr>
+        <th>Letter Grade</th>
+        <th>Total</th>
+    </tr>
+    @foreach (var row in Model.ReportRows)
+    {
+        <tr>
+            <td>@row.LetterGrade</td>
+            <td>@row.Total</td>
+        </tr>
+    }
+</table>
+
+<h2>Letter Grades Distribution (Pie Chart)</h2>
+<div style="max-height:300px;">
+    <canvas id="myChart"></canvas>
+</div>
+
+<script>
+    let data = @Json.Serialize(Model.ReportRows);
+
+    const chartData = {
+        labels: data.map(o => o.letterGrade),
+        datasets: [{
+            label: 'Letter Grades Distribution',
+            data: data.map(o => o.total),
+            backgroundColor: [
+                'green',   // Customize colors as needed
+                'yellow',
+                'orange',
+                'red',
+                'blue'
+            ],
+            hoverOffset: 4
+        }]
+    };
+
+    const config = {
+        type: 'pie',
+        data: chartData,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    };
+
+    new Chart("myChart", config);
+</script>
