@@ -14,7 +14,7 @@ namespace StudentExams.Pages.Exam
         private readonly SchoolDbContext _dbContext;
 
         [BindProperty]
-        public Exam Exam { get; set; }
+        public Models.Exam Exam { get; set; }
 
         public CreateModel(SchoolDbContext dbContext)
         {
