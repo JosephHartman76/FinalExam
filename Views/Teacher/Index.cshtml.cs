@@ -19,7 +19,7 @@ namespace StudentExams.Pages.Teacher
             _dbContext = dbContext;
         }
 
-        public List<Teacher> Teachers { get; set; }
+        public List<StudentExams.Models.Teacher> Teachers { get; set; }
 
         public void OnGet()
         {
