@@ -19,7 +19,7 @@ namespace StudentExams.Pages.Teacher
         }
 
         [BindProperty]
-        public Teacher NewTeacher { get; set; }
+        public Models.Teacher NewTeacher { get; set; }
 
         public IActionResult OnGet()
         {
@@ -40,3 +40,4 @@ namespace StudentExams.Pages.Teacher
         }
     }
 }
+
