@@ -1,0 +1,26 @@
+@page
+@model StudentExams.Views.Student.EditModel
+@{
+}
+
+<h2>Edit Student</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Student.StudentId">Student ID:</label>
+        <input asp-for="Student.StudentId" class="form-control" />
+        <span asp-validation-for="Student.StudentId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Student.FirstName">Score:</label>
+        <input asp-for="Student.FirstName" class="form-control" />
+        <span asp-validation-for="Student.FirstName"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Student.LastName">Score:</label>
+        <input asp-for="Student.LastName" class="form-control" />
+        <span asp-validation-for="Student.LastName"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
