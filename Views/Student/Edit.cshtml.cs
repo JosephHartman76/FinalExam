@@ -20,7 +20,7 @@ namespace StudentExams.Pages.Student
         }
 
         [BindProperty]
-        public Student EditedStudent { get; set; }
+        public Models.Student EditedStudent { get; set; }
 
         public IActionResult OnGet(int id)
         {
