@@ -19,7 +19,7 @@ namespace StudentExams.Pages.Student
         }
 
         [BindProperty]
-        public Student NewStudent { get; set; }
+        public Models.Student NewStudent { get; set; }
 
         public IActionResult OnGet()
         {
