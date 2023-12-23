@@ -1,0 +1,26 @@
+@page
+@model StudentExams.Pages.Exam.CreateModel
+@{
+}
+
+<h2>Create Exam</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="form-group">
+        <label asp-for="Exam.StudentId">Student ID:</label>
+        <input asp-for="Exam.StudentId" class="form-control" />
+        <span asp-validation-for="Exam.StudentId"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Exam.Score">Score:</label>
+        <input asp-for="Exam.Score" class="form-control" />
+        <span asp-validation-for="Exam.Score"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Exam.ExamId">Exam Id:</label>
+        <input asp-for="Exam.ExamId" class="form-control" />
+        <span asp-validation-for="Exam.ExamId"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
