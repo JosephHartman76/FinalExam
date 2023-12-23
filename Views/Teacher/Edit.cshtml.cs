@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using StudentExams.DbContext;
 using StudentExams.Models;
+using StudentExams.Pages.Student;
 
 namespace StudentExams.Pages.Teacher
 {
@@ -20,7 +21,7 @@ namespace StudentExams.Pages.Teacher
         }
 
         [BindProperty]
-        public Teacher EditedTeacher { get; set; }
+        public Models.Teacher EditedTeacher { get; set; }
 
         public IActionResult OnGet(int id)
         {
