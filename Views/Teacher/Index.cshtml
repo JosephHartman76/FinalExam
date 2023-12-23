@@ -1,0 +1,29 @@
+@page
+@model StudentExams.Views.Teacher.IndexModel
+@{
+}
+
+<h2>Teacher Index</h2>
+
+<!-- Display the list of exams -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Exam ID</th>
+            <th>Student ID</th>
+            <th>Score</th>
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var exam in Model.Teacher)
+        {
+            <tr>
+                <td>@exam.StudentId</td>
+                <td>@exam.Score</td>
+                <td>@exam.ExamId</td>
+                <!-- Add other columns as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
